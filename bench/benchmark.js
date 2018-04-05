@@ -7,11 +7,14 @@ const OGVDecoderVideoVP8 = require('../dist/ogv-decoder-video-vp8.js');
 const OGVDecoderVideoVP8W = require('../dist/ogv-decoder-video-vp8-wasm.js');
 const OGVDecoderVideoVP9 = require('../dist/ogv-decoder-video-vp9.js');
 const OGVDecoderVideoVP9W = require('../dist/ogv-decoder-video-vp9-wasm.js');
+const OGVDecoderVideoAV1 = require('../dist/ogv-decoder-video-av1.js');
+const OGVDecoderVideoAV1W = require('../dist/ogv-decoder-video-av1-wasm.js');
 
 let demuxerClass = OGVDemuxerWebMW;
 let decoderClass = {
   'vp8': OGVDecoderVideoVP8W,
-  'vp9': OGVDecoderVideoVP9W
+  'vp9': OGVDecoderVideoVP9W,
+  'av1': OGVDecoderVideoAV1W
 };
 let checksum = false;
 
@@ -135,14 +138,16 @@ while (args.length >= 1) {
     demuxerClass = OGVDemuxerWebM;
     decoderClass = {
       'vp8': OGVDecoderVideoVP8,
-      'vp9': OGVDecoderVideoVP9
+      'vp9': OGVDecoderVideoVP9,
+      'av1': OGVDecoderVideoAV1
     };
     args.shift();
   } else if (args[0] == '--wasm') {
     demuxerClass = OGVDemuxerWebMW;
     decoderClass = {
       'vp8': OGVDecoderVideoVP8W,
-      'vp9': OGVDecoderVideoVP9W
+      'vp9': OGVDecoderVideoVP9W,
+      'av1': OGVDecoderVideoAV1W
     };
     args.shift();
   } else if (args[0] == '--checksum') {
