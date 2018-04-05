@@ -1805,7 +1805,7 @@ function OGVPlayer(options) {
 			return checkTypes(['vorbis', 'opus', 'theora']);
 		} else if (type.minor === 'webm' &&
 			(type.major === 'audio' || type.major === 'video')) {
-			return checkTypes(['vorbis', 'opus', 'vp8', 'vp9']);
+			return checkTypes(['vorbis', 'opus', 'vp8', 'vp9', 'av1']);
 		} else {
 			return '';
 		}
